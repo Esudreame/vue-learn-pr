@@ -10,7 +10,7 @@
     </div>
 
     <my-dialog v-model:show="dialogVisible">
-      <post-form v-on:create="createPost"/>
+      <post-form :name=23 v-on:create="createPost"/>
     </my-dialog>
 
     <post-list
@@ -75,8 +75,13 @@ export default {
   },
   watch:{
     selectedSort(newValue){
-      console.log(newValue)
-    }
+      this.posts.sort((post1, post2)=> {
+        return post1[newValue]?.localeCompare(post2[newValue])
+      })
+    },
+
+
+
   }
 
 }

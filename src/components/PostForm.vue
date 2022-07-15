@@ -2,6 +2,7 @@
   <div>
     <form @submit.prevent>
       <h4>Post creation</h4>
+      <h4>{{name}}</h4>
       <my-input
           v-model="post.title"
           placeholder="Title"
@@ -12,7 +13,6 @@
           placeholder="Description"
       />
       <my-button @click="createPost" style="margin-top: 15px; align-self: flex-end">Create</my-button>
-
     </form>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default {
       }
     }
   },
+  props:{
+    name: Number
+  },
+
+
   methods: {
     createPost() {
       this.post.id = new Date()
