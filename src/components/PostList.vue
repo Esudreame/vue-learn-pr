@@ -1,5 +1,5 @@
 <template>
-  <div v-if="posts.length > 0">
+  <div>
     <post-item
         v-for="post in posts"
         :post="post"
@@ -7,9 +7,7 @@
         @remove="$emit('remove', post)"
     />
   </div>
-  <div v-else style="color: red">
-    <h2>Есть пробитие</h2>
-  </div>
+
 
 </template>
 <script>
